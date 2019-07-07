@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<head>
+	<title>Flawless Hacks - Git</title>
+	<link rel="stylesheet" href="css/slides.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+	<link rel="stylesheet" href="css/slides-custom.css" type="text/css" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+	<div id="slides">
+		<section>
+  <h2 id="so-youve-decided-you-want-a-website">So, You’ve Decided You Want a Website</h2>
+
+  <p class="fragment"><strong>How 90’s of you. Just make a facebook page and call it a day!</strong>.</p>
+
+  <p class="fragment">Nah. We’re DIYers or technophiles, <a href="https://octodex.github.com/">tiny cat and octopus hybrid mutants</a>, people who like making <a href="https://en.wikipedia.org/wiki/Byzantine_complexity">Byzantine complexity</a> to make their lives simultaneously easier and more <em>terrible</em>.</p>
+
+  <p class="fragment"><strong>So, of course, we’re going to look for some options <em>different</em> options.</strong> →</p>
+</section>
+
+<section>
+  <h2 id="such-choices">SUCH CHOICES</h2>
+
+  <p><strong>What choices do we have for creating AND deploying web sites (I know, we have a lot, but… let’s just talk through this)</strong> →</p>
+
+  <p class="fragment">Well, we could break this up into a few broad categories…</p>
+
+  <ul>
+    <li class="fragment"><strong>self hosted / cloud</strong> vs <strong>self-hosted</strong>
+      <ul>
+        <li class="fragment"><strong>hosted / cloud</strong> - someone else runs the server / computing resources that you site runs own</li>
+        <li class="fragment"><strong>self-hosted</strong> - you run the server that your site is hosted on</li>
+      </ul>
+    </li>
+    <li class="fragment"><strong>static vs dynamic / database driven</strong>
+      <ul>
+        <li class="fragment"><strong>static</strong> - your site consists of <em>static</em> (unchanging) files, such as plain text files (html, css, etc.) and images</li>
+        <li class="fragment"><strong>dynamic / database driven</strong> - your site depends on a database, and possibly some sort of server side programming language to generate html</li>
+      </ul>
+    </li>
+  </ul>
+
+  <p class="fragment">Of course, there are hybrids, where you may have a purely static site with no server-side language, but your site uses client site code to retrieve data from an API or database-as-a-service (Firebase, for example)</p>
+
+</section>
+
+<section>
+  <h2 id="static-sites-hosted-on-someone-elses-platform">Static Sites Hosted on Someone Else’s Platform</h2>
+
+  <p><strong>For personal sites, a static site hosted on some else’s servers / platform / cloud service may be a <em>really good</em> solution. Why</strong> →</p>
+
+  <ol>
+    <li class="fragment"><strong>maintaining our servers is hard <a href="http://itre.cis.upenn.edu/~myl/languagelog/archives/002892.html">let’s go shopping</a> (<a href="https://snowclones.org/2008/02/19/x-is-hard-let%E2%80%99s-go-shopping/">a snowclone of course</a>)</strong></li>
+    <li class="fragment">seriously, <strong>you do not want to maintain your own servers</strong>, have to deal with security updates, make sure it’s up-and-running, make sure it’s not hacked into, etc. 😮</li>
+    <li class="fragment">not everything needs a database and a server side language - writing html is just simpler (<a href="http://english.stackexchange.com/questions/2166/more-clear-vs-clearer-when-to-use-more-instead-of-er">english language and usage stackexchange, who knew?</a>)!</li>
+    <li class="fragment"><strong>less points of failure</strong> - simply just serving static files is less prone to failure than running a database, an application server and a web server</li>
+    <li class="fragment">you’re just dealing with <strong>plain text</strong> (you can use text manipulation tools for finding and replacing content)</li>
+  </ol>
+
+</section>
+
+<section>
+  <h2 id="the-world-of-static-site-hosting-">The World of Static Site Hosting 🌎</h2>
+
+  <p>There are a bunch of places that’ll host static sites for you <strong>for free</strong> 💯 →</p>
+
+  <ul>
+    <li class="fragment"><a href="https://neocities.org/">Neocities</a> (hey, kind of like <a href="https://www.google.com/search?q=geocities+aesthetic&amp;source=lnms&amp;tbm=isch&amp;sa=X&amp;ved=0ahUKEwj32YWozpDSAhWqhVQKHfsFACgQ_AUICCgB&amp;biw=1294&amp;bih=893">geocities</a>, but for <em>right now times</em>, instead of <a href="https://en.wikipedia.org/wiki/Yahoo!_GeoCities">1994</a>)</li>
+    <li class="fragment"><a href="https://www.weebly.com/">Weebly</a> (kind of like a <em>free</em> squarespace maybe?)</li>
+    <li class="fragment"><a href="https://pages.github.com/">GitHub Pages</a>
+      <ul>
+        <li>(of course, we’ll be talking about this, since it’s what I know)</li>
+      </ul>
+    </li>
+    <li class="fragment"><a href="https://pages.gitlab.io/">GitLab Pages</a> (GitLab is a pretty good alternative to GitHub, and it includes a lot of similar features, like Pages - plus, you can self hoste, it has active and transparent development, etc.)</li>
+    <li class="fragment"><a href="https://www.netlify.com/home/?utm_expid=92487948-2.ORzT-7TOT0O-eMsutlXfKA.1">netlify</a></li>
+    <li class="fragment"><a href="https://firebase.google.com/docs/hosting/">Firebase (!?)</a> (known mostly as a database-as-a-service platform, but <em>you can actually just serve static files from it!</em>)</li>
+    <li class="fragment"><a href="https://github.com/heroku/heroku-buildpack-static">heroku buildpack static</a> (heroku’s probably not the best option for static sites, but it’s possible!)</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="github-pages">GitHub Pages</h2>
+
+  <p>GitHub offers a feature called <strong>GitHub Pages</strong> that <strong>allows you to host a site directly from a GitHub repository</strong>! →</p>
+
+  <ol>
+    <li class="fragment">simply create files in your repo</li>
+    <li class="fragment">aaaaand they’re <em>served</em> (!?)</li>
+    <li class="fragment">you can reach them via <code class="highlighter-rouge">https://username.github.io/reponame</code>
+      <ul>
+        <li class="fragment">(or <code class="highlighter-rouge">https://username.github.io</code>)</li>
+        <li class="fragment">(or you can configure a <a href="">custom domain name</a>, but without https)</li>
+      </ul>
+    </li>
+  </ol>
+
+  <p class="fragment"><strong>Some technical reasons to choose GitHub pages over some of the other solutions are</strong> →</p>
+
+  <ul>
+    <li class="fragment">you can develop with standard tools like <code class="highlighter-rouge">git</code></li>
+    <li class="fragment">a static site generation tool, <code class="highlighter-rouge">jekyll</code>, comes with it</li>
+    <li class="fragment">you probably already have a project on GitHub, so hosting the accompanying site in the same place would make sense</li>
+    <li class="fragment">you have https if you use the <code class="highlighter-rouge">github.io</code> domain 👍</li>
+  </ul>
+
+</section>
+
+<section>
+  <h2 id="why-again">Why Again?</h2>
+
+  <p><strong>Some more <em>personal</em> reasons to use GitHub pages</strong> →</p>
+
+  <ul>
+    <li class="fragment">it’s <em>very</em> flexible (you don’t have to stick to canned templates)</li>
+    <li class="fragment">you love using the commandline, so why not use that to manage your site content!? (um… <em>those people exist?</em>)</li>
+  </ul>
+
+</section>
+
+<section>
+  <h2 id="github-pages-continued">GitHub Pages Continued</h2>
+
+  <p>There are some options involved with creating sites via GitHub pages. You have to determine if you want to:</p>
+
+  <ul>
+    <li class="fragment">create a <strong>user site</strong> (one user site per github user)  or a <strong>project specific site</strong> (one site per repo)</li>
+    <li class="fragment">use a pre-built jekyll theme or build from scratch</li>
+    <li class="fragment">use web interface or develop locally with:
+      <ul>
+        <li>git</li>
+        <li>local jekyll</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="using-github-pages">Using GitHub Pages</h2>
+
+  <p>There are a few different ways to create sites using GitHub Pages.  They all require a repository on GitHub. <strong>You can</strong> →</p>
+
+  <ul>
+    <li>use the web interface</li>
+    <li>use the commandline
+      <ul>
+        <li>plain html</li>
+        <li>with layouts, markdown</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="simple-set-up">“Simple” Set Up</h2>
+
+  <p><strong>To set up a static site with GitHub pages using a pre-built theme</strong> →</p>
+
+  <ol>
+    <li class="fragment"><strong>create a repository</strong>
+      <ol>
+        <li class="fragment">initialize with jekyll in your <code class="highlighter-rouge">.gitignore</code> (this will keep unwanted files out of your repository)</li>
+        <li class="fragment">optionally add a <code class="highlighter-rouge">README.md</code> file</li>
+      </ol>
+    </li>
+    <li class="fragment">if this site is meant to accompany code for a project that’s in the same repository, <strong>create a new branch</strong> (a good convention is to use <code class="highlighter-rouge">gh-pages</code> as the branch name)</li>
+    <li class="fragment"><strong>configure your repository</strong> to use GitHub pages
+      <ol>
+        <li class="fragment"><strong>specify the branch</strong> (stick with <code class="highlighter-rouge">master</code> or use the branch you created above, like <code class="highlighter-rouge">gh-pages</code>)</li>
+        <li class="fragment">choose a theme</li>
+      </ol>
+    </li>
+  </ol>
+
+  <p class="fragment"><a href="https://pages.github.com/">Check out the GitHub pages guide for a full guide</a></p>
+
+</section>
+
+<section>
+  <h2 id="adding-pages-to-your-static-site">Adding Pages to Your Static Site</h2>
+
+  <p><strong>To add some html files to your site</strong> →</p>
+
+  <ol>
+    <li class="fragment">change to the branch that you configured for use with GitHub Pages</li>
+    <li class="fragment">create a new file with an html extension (remember to add the file name!)
+      <ol>
+        <li class="fragment">add this header to the file:
+          <pre><code data-trim="" contenteditable="">
+---
+layout: default
+---
+</code></pre>
+        </li>
+        <li class="fragment">add your markup:
+          <pre><code data-trim="" contenteditable="">
+ <h1>Sooo static</h1>
+</code></pre>
+        </li>
+      </ol>
+    </li>
+    <li class="fragment">add your comment and commit</li>
+    <li class="fragment">check out your page:
+      <ul>
+        <li>go to https://username.github.io/reponame</li>
+        <li>or just https://user.github.io for a user site</li>
+      </ul>
+    </li>
+  </ol>
+
+  <p class="fragment"><strong>You’ll have to wait for about 30 seconds or so to see your page build</strong> 😢</p>
+</section>
+
+<section>
+  <h2 id="my-eyes-are-bleeding-angle-brackets">My Eyes are Bleeding Angle Brackets</h2>
+
+  <p><strong>You know what makes me cry? HTML. So many pointy angle brackets, so many tags!</strong> 😭</p>
+
+  <p class="fragment">Don’t worry! GitHub pages allows you to write up some markdown instead of html! <strong>Let’s try it</strong> →</p>
+
+  <ol>
+    <li class="fragment">start with the header - <code class="highlighter-rouge">layout: default</code></li>
+    <li class="fragment"><strong>give your file an <code class="highlighter-rouge">.md</code> extension</strong></li>
+    <li class="fragment">write u sum markdown!</li>
+    <li class="fragment">(uh, what’s markdown?)</li>
+  </ol>
+
+</section>
+
+<section>
+  <h2 id="markdown">Markdown</h2>
+
+  <p><strong>Markdown is a lightweight markup language meant to mimic the format of text files and yet, be easily converted to html</strong> →</p>
+
+  <p class="fragment">There’s the canonical <a href="https://daringfireball.net/projects/markdown/syntax">markdown syntax from daring fireball</a>, but we’ll be using <a href="https://guides.github.com/features/mastering-markdown/">github flavored markdown</a> and <em>jekyll</em>. This allows for:</p>
+
+  <ul>
+    <li class="fragment">mixing html with markdown</li>
+    <li class="fragment">code blocks</li>
+    <li class="fragment">tables</li>
+  </ul>
+
+</section>
+
+<section>
+  <h2 id="github-markdown">GitHub Markdown</h2>
+
+  <p><strong>Again, check out the <a href="https://guides.github.com/features/mastering-markdown/">reference</a>. Let’s go over…</strong></p>
+
+  <ul>
+    <li class="fragment">headers</li>
+    <li class="fragment">lists</li>
+    <li class="fragment">block quotes</li>
+    <li class="fragment">links</li>
+    <li class="fragment">images</li>
+    <li class="fragment">inline code</li>
+    <li class="fragment">code blocks with fences and indentation</li>
+    <li class="fragment">mixing in markup</li>
+  </ul>
+
+</section>
+
+
+	</div>
+	<script src="js/slides.js"></script>
+</body>
+</html>

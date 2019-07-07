@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<head>
+	<title>Flawless Hacks - CSS</title>
+	<link rel="stylesheet" href="css/slides.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+	<link rel="stylesheet" href="css/slides-custom.css" type="text/css" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+	<div id="slides">
+		<style>
+#slides section {
+	font-size: 3.25vh;
+}
+</style>
+
+<section class="intro-slide">
+  <h1 id="css">CSS</h1>
+
+  <h3 id="give-your-page-some-style-">Give your page <em>some</em> style! 😎</h3>
+
+</section>
+
+<section>
+  <h2 id="hm-so-many-elements">Hm. So Many Elements.</h2>
+
+  <p><strong>There are a ton of HTML elements that we can use.</strong></p>
+
+  <p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/HTML5_element_list">Check out the list of valid HTML5 elements on MDN</a></p>
+
+  <p>Whew! <strong>How do we know which element we should use for a mark-up? How do we choose? (easy for headers, images links, etc… but other content?)</strong> →</p>
+
+  <p class="fragment">Use the one that describes / represents the content best.</p>
+
+  <ul class="fragment">
+    <li>if a tag doesn’t exist that describes your content, you’ll often see a generic container element, like <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div">div</a></li>
+    <li>(a div doesn’t inherently represent anything)</li>
+    <li>but, with so many tags, it should be easy to find one that’s appropriate (there are a bunch of new ones)
+      <ul>
+        <li>if your element contains navigation elements, use <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav">nav</a></li>
+        <li>if it’s your header or footer, use <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header">header</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer">footer</a>
+  *etc.</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section data-background="#440000">
+  <h2 id="remember-mark-up-is-for-structure-and-meaning-not-style">Remember, Mark-up is for structure and meaning, not style</h2>
+</section>
+
+<section>
+  <h2 id="css-1">CSS</h2>
+
+  <p><strong>We use Cascading Style Sheets</strong> to style our pages.</p>
+
+  <ul>
+    <li>CSS is a stylesheet language</li>
+    <li>used to describe the presentation and layout of an HTML document</li>
+    <li>for the next few slides, I’m assuming some very <em>basic</em> knowledge of CSS</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="definitions">Definitions</h2>
+
+  <p><strong>Name the parts of this code:</strong> →</p>
+
+  <pre><code data-trim="" contenteditable="">h3 {
+	font-size: 2em;
+	color: #ff0000;
+}
+</code></pre>
+
+  <pre class="fragment"><code data-trim="" contenteditable="">this whole thing is a rule...
+
+selector
+|   property    value 
+|      |        |		    
+h3 {
+	font-size: 2em; ---+
+	                   |---- declaration block
+	color: #ff0000; ---+
+	|_____________|
+          |
+		  declaration
+}
+
+</code></pre>
+
+</section>
+
+<section>
+  <h2 id="definitions-1">Definitions</h2>
+
+  <p>Just to get some terminology straight. <strong>When talking about CSS.</strong> →</p>
+
+  <ul>
+    <li><strong>rule</strong> - the selector and all of its accompanying property:value pairs</li>
+    <li><strong>selector</strong> - specifies an element(s) within the markup where styles will be applied</li>
+    <li><strong>property</strong> - the name of a particular style</li>
+    <li><strong>value</strong> - the <em>actual</em> style being applied on the property</li>
+    <li><strong>declaration</strong> - the property and its value - for example: <code>color:red;</code></li>
+    <li><strong>declaration block</strong> - the curly braces and all of the declarations within them
+      <ul>
+        <li>there can be multiple <strong>declarations</strong> in each <strong>declaration block</strong>, separated by semicolons (<code>;</code>’s)</li>
+        <li>(<em>technically</em>, you can leave off the semicolon of the last declaration, but that’s considered bad practice – potentially leads to errors when you add another declaration)</li>
+      </ul>
+    </li>
+  </ul>
+
+</section>
+
+<section>
+  <h2 id="but-wait">But Wait!!</h2>
+
+  <p><strong>Do you see any difference in how elements are laid out, even if we haven’t explicitly applied styles?</strong> →</p>
+
+  <p>Take for example… a paragraph (a <code>p</code> tag) and an anchor (a link, and <code>a</code> tag)</p>
+
+  <ul class="fragment">
+    <li>paragraphs seem to go on separate lines</li>
+    <li>while anchor links stay on the same line</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="the-display-property">The Display Property</h2>
+
+  <p>In CSS, the <code>display</code> property determines how elements are laid out.</p>
+
+  <ul>
+    <li>every element has a default display value</li>
+    <li>the default for most elements are either <code>block</code> or <code>inline</code>, but there are actually 4 possible values:
+      <ul>
+        <li><code>block</code></li>
+        <li><code>inline</code></li>
+        <li><code>none</code></li>
+        <li><code>inline-block</code></li>
+      </ul>
+    </li>
+  </ul>
+
+  <p>(Well, and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display">a bunch of others</a>)</p>
+</section>
+
+<section>
+
+  <h2 id="block">Block</h2>
+
+  <p>An element that is <code>display:block</code>:</p>
+
+  <ul>
+    <li>starts a new line</li>
+    <li>…and stretches out as far horizontally as possible (full width)</li>
+    <li>you can specify a block-level element’s width and height!</li>
+    <li>some elements that are commonly displayed as block: <code>div</code>, <code>p</code>, <code>h1</code>, etc.</li>
+  </ul>
+
+  <iframe width="100%" height="300" src="https://jsfiddle.net/3o7t0dzz/1/embedded/html,result,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</section>
+
+<section>
+  <h2 id="inline">Inline</h2>
+
+  <p>An element that is <code>display:inline</code></p>
+
+  <ul>
+    <li>stays in line with its surrounding elements</li>
+    <li>think of a single word in a paragraph.</li>
+    <li><strong>does not have a <code>width</code> or <code>height</code> that can be specified</strong></li>
+    <li>however (as we saw <em>in previous slides</em>) it can have a border, background… and even a margin and padding (though only horizontal margin and padding)</li>
+  </ul>
+
+  <iframe width="100%" height="300" src="https://jsfiddle.net/rdosf6ra/1/embedded/html,result,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</section>
+
+<section>
+
+  <h2 id="none">None</h2>
+
+  <p>If an element is <code>display:none</code>:</p>
+
+  <ul>
+    <li>the element is not displayed and has no effect on layout</li>
+    <li>all elements nested within it are also not displayed</li>
+    <li>the document is rendered as if the element did not exist</li>
+  </ul>
+
+  <iframe width="100%" height="300" src="https://jsfiddle.net/eyumt37L/embedded/html,css,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+  <p><strong>What are some common elements that are <em>not</em> displayed?</strong> →</p>
+
+  <p class="fragment"><code>script</code>, <code>style</code>, <code>title</code></p>
+</section>
+
+<section>
+  <h2 id="inline-block">Inline-Block</h2>
+
+  <p>If an element is <code>display:inline-block</code>:</p>
+
+  <ul>
+    <li>it behaves similarly to <em>inline</em> elements in that it will stay inline (no new line)</li>
+    <li>however, you can give it a height and a width</li>
+  </ul>
+
+  <iframe width="100%" height="300" src="https://jsfiddle.net/ds331u52/embedded/html,css,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+</section>
+
+<section>
+  <h2 id="ok-a-quick-summary">Ok, a Quick Summary</h2>
+
+  <p>Two consecutive <strong>inline</strong> elements will display ______________ each other. →</p>
+
+  <p class="fragment">adjacent to</p>
+
+  <p class="fragment">Two consecutive <strong>block-level</strong> elements will display ______________ each other. →</p>
+
+  <p class="fragment">stacked on</p>
+
+  <p class="fragment">Two consecutive <strong>inline-block</strong> elements will display ______________ each other.  →</p>
+
+  <p class="fragment">adjacent to</p>
+</section>
+
+<section>
+  <h2 id="some-weird-ones">Some Weird Ones</h2>
+
+  <p>There are many other possible values for the <code>display</code> property. <strong>Let’s take a look at a weird one:</strong> →</p>
+
+  <p>Table related values:</p>
+
+  <ul>
+    <li><code>table</code></li>
+    <li><code>table-cell</code></li>
+    <li><code>table-row</code></li>
+  </ul>
+
+</section>
+
+<section>
+  <h2 id="table--yikes">Table-* (Yikes!)</h2>
+
+  <p>So… <code>table</code>, <code>table-cell</code> and <code>table-row</code> are all display properties that apply to (as their names imply) tables, cells and rows.</p>
+
+  <p>However, you can make any element behave like a table; <strong>just add the appropriate display</strong> <strong>(but <em>whyyyyy</em>?)</strong> →</p>
+
+  <iframe width="100%" height="350" src="https://jsfiddle.net/zu1f5req/2/embedded/html,css,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+  <p class="fragment">Maybe there’s an element that describes your content more accurately than <code>td</code>?</p>
+</section>
+
+<section>
+  <h2 id="more-about-block-level-elements">More About Block Level Elements</h2>
+
+  <ul>
+    <li>setting the width on a block level element prevents it from stretching out horizontally</li>
+    <li>use <code>max-width</code> if you don’t want scrollbars when you resize to small window or have smaller resolution device</li>
+    <li>a block-level element can be centered by specifying a width and setting a margin to auto</li>
+  </ul>
+
+  <p><strong>Let’s see what this looks like…</strong> →</p>
+  <pre><code data-trim="" contenteditable="">#content {
+	border: 1px solid #000;
+	max-width: 500px;
+	margin:auto;
+}
+</code></pre>
+</section>
+
+<section>
+  <h2 id="visibility">Visibility</h2>
+
+  <p>As mentioned above, there’s another CSS property that can hide and show elements.</p>
+
+  <p><strong>visibility</strong> - can hide an element but leave space where it should have appeared</p>
+
+  <p><strong>Let’s see what this looks…</strong></p>
+
+  <pre><code data-trim="" contenteditable="">#content {
+	visibility: none;
+}
+</code></pre>
+
+</section>
+
+<section>
+  <h2 id="visibility-vs-display-none">Visibility vs Display None</h2>
+
+  <p><strong>Oh yeah… what’s the difference between <code>visibility:hidden</code> vs <code>display:none</code>.</strong> →</p>
+
+  <ul class="fragment">
+    <li><code>display:none</code> takes the element out of the document completely
+      <ul>
+        <li>surrounding elements are arranged as if element never existed!</li>
+      </ul>
+    </li>
+    <li>…however, <code>visibility:hidden</code> keeps the element in the document, but does not show it
+      <ul>
+        <li>surrounding elements are arranged as if the element were still in place</li>
+      </ul>
+    </li>
+  </ul>
+
+</section>
+
+<section>
+  <h2 id="styling-text">Styling Text</h2>
+
+  <ul>
+    <li><code class="highlighter-rouge">font-family</code></li>
+    <li><code class="highlighter-rouge">font-size</code></li>
+    <li><code class="highlighter-rouge">font-weight</code></li>
+    <li><code class="highlighter-rouge">color</code></li>
+    <li><code class="highlighter-rouge">text-decoration</code></li>
+  </ul>
+
+</section>
+
+<section>
+  <h2 id="more-styling-text">More Styling Text</h2>
+
+  <p>Services that provides fonts (along with relevant css to use fonts)</p>
+
+  <ul>
+    <li>Typekit</li>
+    <li>Google Web Fonts</li>
+    <li>Adobe Edge Web Fonts</li>
+  </ul>
+
+</section>
+
+<section>
+  <h2 id="margin-padding-border">Margin, Padding, Border</h2>
+
+  <ul>
+    <li><code class="highlighter-rouge">margin</code></li>
+    <li><code class="highlighter-rouge">border</code></li>
+    <li><code class="highlighter-rouge">padding</code></li>
+  </ul>
+
+</section>
+
+<section>
+  <h2 id="background">Background!</h2>
+
+  <ul>
+    <li><code class="highlighter-rouge">background-image</code> (url(“http://url.to/image”, linear_gradient)</li>
+    <li><code class="highlighter-rouge">background-repeat</code> (repeat, no-repeat, repeat-x, repeat-y)</li>
+  </ul>
+
+</section>
+
+<section>
+  <h1 id="box-model">Box Model</h1>
+
+</section>
+
+<section>
+  <h2 id="an-elements-width-and-height">An Element’s Width and Height</h2>
+
+  <p>Now that we know some elements have a width and height, while some don’t… <strong>we should probably figure out what width and height actually mean</strong>.</p>
+
+  <p><strong>Is the width and height all there is to figuring out the dimensions of an element? What else has to be taken into account?</strong> →</p>
+
+  <ul class="fragment">
+    <li><code>border</code></li>
+    <li><code>margin</code></li>
+    <li><code>padding</code></li>
+  </ul>
+
+  <p class="fragment"><strong>How are they all related? Let’s see on the next few slides.</strong> →</p>
+</section>
+
+<section>
+  <h2 id="box-sizing">box-sizing</h2>
+
+  <p><strong>box-sizing</strong> is the CSS property that determines the <strong>box-model</strong> used to calculate the <code>width</code> and <code>height</code> of an element.</p>
+
+  <p>Two values that we’ll look at are:</p>
+
+  <ul>
+    <li><code>content-box</code> (the default)</li>
+    <li><code>border-box</code></li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="content-box">content-box</h2>
+
+  <p><strong>content-box</strong> is the default value for box-sizing. This box-model:</p>
+
+  <ul>
+    <li><code>width</code> and <code>height</code> are <strong>calculated by the content only</strong></li>
+    <li>it does not include <code>padding</code>, <code>border</code>, or <code>margin</code></li>
+  </ul>
+
+  <iframe width="100%" height="300" src="https://jsfiddle.net/e60z8oyq/embedded/result,css,html/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+</section>
+
+<section>
+  <h2 id="content-box-diagram">content-box Diagram</h2>
+
+  <div class="img">
+
+    <p><img src="https://upload.wikimedia.org/wikipedia/en/e/e1/Boxmodel.gif" alt="box-model" /></p>
+
+  </div>
+
+  <ul>
+    <li class="fragment">the border is between the margin and padding</li>
+    <li class="fragment">padding adds space between the actual content and its border</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="content-box-issue">content-box Issue</h2>
+
+  <ul>
+    <li>clearly, in the default box model, border, padding (and margin) are not included in width calculations</li>
+    <li><strong>why is this an issue?</strong> →</li>
+    <li class="fragment"><strong>the following are both 150px wide (!?)</strong> →</li>
+  </ul>
+
+  <iframe width="100%" height="350" src="https://jsfiddle.net/25cmdru0/1/embedded/result,html,css/" allowfullscreen="allowfullscreen" frameborder="0" class="fragment"></iframe>
+</section>
+
+<section>
+  <h2 id="border-box">border-box</h2>
+
+  <p>If the value of the <code>border-box</code> property is set to <strong>border-box</strong>,</p>
+
+  <ul>
+    <li><code>width</code> and <code>height</code> include <code>padding</code> and <code>border</code></li>
+    <li>it, however, does not include <code>margin</code></li>
+  </ul>
+
+  <iframe width="100%" height="350" src="https://jsfiddle.net/up46uvhg/1/embedded/result,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</section>
+
+<section>
+  <h2 id="positioning">Positioning</h2>
+
+  <p>The <strong>position</strong> property specifies what rules to use for positioning an element in the document:</p>
+
+  <p><strong>What are some possible values? (we know two of them at least)</strong> →</p>
+
+  <ul class="fragment">
+    <li><code>static</code></li>
+    <li><code>relative</code></li>
+    <li><code>absolute</code></li>
+    <li><code>fixed</code></li>
+    <li><code>sticky</code></li>
+  </ul>
+
+</section>
+
+<section>
+  <h2 id="static--not-positioned">Static / Not Positioned</h2>
+
+  <p><strong>The default positioning of an element is <code>static</code>, or <em>not positioned</em>.</strong>:</p>
+
+  <ul>
+    <li>it is laid out in its current position in the flow (no special positioning)</li>
+    <li><code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code>, and <code>z-index</code> (depth) properties do not apply to an element that is  <strong>not positioned</strong></li>
+  </ul>
+</section>
+<section>
+  <h2 id="relative">Relative</h2>
+
+  <p>An element with <code>position:relative</code> can be positioned relative to where it would normally be in the document:</p>
+
+  <ul>
+    <li>behaves the same as static… that is, <strong>unless</strong>…</li>
+    <li>you supply <code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code>, or <code>z-index</code> properties, the element will be moved accordingly</li>
+    <li>other elements flow as if the positioned element were in its normal place!</li>
+  </ul>
+
+  <iframe width="100%" height="300" src="https://jsfiddle.net/njncjbf9/3/embedded/html,css,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</section>
+
+<section>
+  <h2 id="a-note-about-top-bottom-left-and-right">A Note About top, bottom, left and right</h2>
+
+  <p>For relatively positioned elements:</p>
+
+  <ul>
+    <li><strong>top</strong>  specifies how far an element is moved below its normal position</li>
+    <li><strong>bottom</strong> specifies how far an element is moved above its normal position</li>
+    <li><strong>left</strong> specifies the offset that the element is moved left from its normal position</li>
+    <li><strong>right</strong> specifies the offset that the element is moved right from its normal position</li>
+  </ul>
+
+  <p>By default, these are all set to <code>auto</code>. They can be set to a length or percentage of the containing element.</p>
+</section>
+
+<section>
+  <h2 id="depth">Depth</h2>
+
+  <p>There’s also a property called <strong>z-index</strong>. <strong>What does z-index do?</strong> →</p>
+
+  <ul class="fragment">
+    <li>specifies the <em>depth of an element</em></li>
+    <li>when elements overlap, z-index determines which element covers the other element</li>
+    <li>an element with a larger z-index covers an element with a lower z-index</li>
+  </ul>
+</section>
+<section>
+  <h2 id="fixed">Fixed</h2>
+
+  <p>An element with <code>position:fixed</code>:</p>
+
+  <ul>
+    <li>is positioned outside of the normal flow (no space is left where the element would normally be)</li>
+    <li>it’s positioned relative to the screen’s viewport</li>
+    <li>it stays in the same place even when it’s scrolled</li>
+    <li>the top, right, bottom, and left properties are used</li>
+    <li><strong>width will shrink to fit content unless width explicitly specified</strong></li>
+  </ul>
+
+  <iframe width="100%" height="300" src="https://jsfiddle.net/3qfjwp77/2/embedded/html,css,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</section>
+<section>
+  <h2 id="absolute">Absolute</h2>
+
+  <p>An element with <code>position:absolute</code>:</p>
+
+  <ul>
+    <li>similar to fixed except relative to <em>nearest positioned ancestor</em> (or body if no positioned ancestor)</li>
+    <li>also positioned outside of the normal flow (no space is left where the element would normally be)</li>
+    <li>the top, right, bottom, and left properties are used</li>
+    <li>width of element will shrink to fit content unless width specified</li>
+  </ul>
+
+  <iframe width="100%" height="300" src="https://jsfiddle.net/cLsjgpsv/2/embedded/html,css,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</section>
+
+<section>
+  <h2 id="how-about-a-practical-example">How About a Practical Example</h2>
+
+  <p><strong>Let’s talk through what’s involved in creating this layout.</strong> →</p>
+
+  <ul>
+    <li>maybe check out the actual page itself… then the html</li>
+    <li>with an eye towards the header, nav and sidebar</li>
+  </ul>
+
+  <iframe width="100%" height="400" src="https://jsfiddle.net/gcggzpuj/1/embedded/result,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</section>
+
+<section>
+  <h2 id="about-the-header">About the Header</h2>
+
+  <p><strong>How did we make the header stay in place, cover every element and stretch across?</strong> →</p>
+
+  <pre class="fragment"><code data-trim="" contenteditable="">header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 50px;
+	background-color: white;
+	width: 100%;
+	border:3px solid #090;
+	z-index: 1;
+}
+</code></pre>
+
+  <ul class="fragment">
+    <li>note the z-index to make sure it’s above the other elements.</li>
+    <li>also the width is set to 100% (since the default width of a fixed element shrinks to wrap content)</li>
+  </ul>
+</section>
+<section>
+  <h2 id="and-that-nav">And That Nav?</h2>
+
+  <p><strong>How do you think the nav is positioned so that it’s on the top right of the header?</strong> →</p>
+
+  <pre class="fragment"><code data-trim="" contenteditable="">nav {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+</code></pre>
+
+  <p class="fragment">It’s relative to its ancestor, the header… so we can use absolute.</p>
+</section>
+<section>
+  <h2 id="how-about-the-sidebar">How About the Sidebar?</h2>
+
+  <p><strong>Finally… how is the sidebar right aligned using the position property?</strong> →</p>
+
+  <pre class="fragment"><code data-trim="" contenteditable="">.sidebar {
+	position: absolute;
+	right: 0px;
+	width: 150px;
+	border: 3px solid #800;
+}
+</code></pre>
+
+  <p class="fragment"><strong>What will happen if we make position fixed?</strong> →</p>
+
+  <p class="fragment">It’ll go under the header and above the div with class=”hero”.</p>
+</section>
+
+<section>
+  <h1 id="sizing">Sizing</h1>
+
+</section>
+
+<section>
+  <h2 id="sizing-1">Sizing</h2>
+
+  <p>You might have noticed that there are multiple units of measurement that we could use for properties such as <code>width</code> or <code>margin</code>.</p>
+
+  <p><strong>What are the possible units?</strong> →</p>
+
+  <p class="fragment">There are <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length">many</a>! (Here are a few that we’ll go over).</p>
+
+  <ul class="fragment">
+    <li>relative
+      <ul>
+        <li><code>em</code></li>
+        <li><code>rem</code></li>
+      </ul>
+    </li>
+    <li>absolute
+      <ul>
+        <li><code>px</code></li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="em">em</h2>
+
+  <p>An <strong>em</strong> is a dynamic sizing unit relative to font-size:</p>
+
+  <ul>
+    <li>an <code>em</code> is equal to the <strong>size of the font that applies to the parent of the element</strong></li>
+    <li>for example, <code>2em</code> is twice the size of the parent’s font-size</li>
+    <li>(usually, the default browser styles for font-size end up being about 16px)</li>
+  </ul>
+
+  <iframe width="100%" height="350" src="https://jsfiddle.net/tjbw4jjj/embedded/result,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+</section>
+<section>
+  <h2 id="rem">rem</h2>
+
+  <p><strong>rem</strong> represents the font-size of the root (<code>&lt;html&gt;</code>element).</p>
+
+  <ul>
+    <li><code>2rem</code> is twice the size of the root element’s font-size</li>
+    <li>behaves similarly to ems, but doesn’t stack for nested elements</li>
+  </ul>
+
+  <iframe width="100%" height="300" src="https://jsfiddle.net/wqvnb39n/2/embedded/result,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+</section>
+<section>
+  <h2 id="relative-units">Relative Units</h2>
+
+  <p>Both <code>rem</code> and <code>em</code> are relative measurements.</p>
+
+  <p><strong>Why might using relative measurements be useful?</strong> →</p>
+
+  <ul class="fragment">
+    <li>easy to change sizes throughout</li>
+    <li>just change the root element / parent element, and everything else changes in proportion</li>
+    <li>particularly useful for media queries / responsive design</li>
+  </ul>
+
+  <p class="fragment"><strong>Let’s try upping the font size … when we have them initially set to pixels.</strong> →</p>
+
+  <iframe width="100%" height="300" src="https://jsfiddle.net/eddmheor/2/embedded/result,css,html/" allowfullscreen="allowfullscreen" frameborder="0" class="fragment"></iframe>
+</section>
+<section>
+  <h2 id="when-to-use-pxremem">When to Use px/rem/em</h2>
+
+  <p>It may be confusing determining which one to use. It depends on what you’re trying to accomplish.</p>
+
+  <ul>
+    <li>generally, use relative sizes so that changing is easy</li>
+    <li>use pixels when you want elements that stay a consistent size (usually things like setting max/min width, margins, borders or padding, rather than text)</li>
+  </ul>
+
+  <p>Some articles…</p>
+
+  <ul>
+    <li><a href="https://j.eremy.net/confused-about-rem-and-em/">em for everything, pixels on borders</a></li>
+    <li><a href="http://css-tricks.com/rems-ems/">perhaps set pixel sizes at the root element, rem for <em>components</em>, and em for text</a></li>
+  </ul>
+</section>
+
+<section>
+  <h1 id="selectors">Selectors</h1>
+
+</section>
+
+<section>
+  <h2 id="selectors-1">Selectors</h2>
+
+  <p><strong>What’s a selector again?</strong> →</p>
+
+  <p class="fragment">A selector is the part of a CSS rule that determines what element or elements the style declarations apply to:</p>
+
+  <p class="fragment">In the following code, <code>p</code> is the selector:</p>
+
+  <pre class="fragment"><code data-trim="" contenteditable="">p {
+	margin: 10px;
+}
+</code></pre>
+
+</section>
+
+<section>
+  <h2 id="possible-selectors">Possible Selectors</h2>
+
+  <p><strong>This one may be a bit difficult to answer… but what are the possible values for selectors?</strong> →</p>
+
+  <p class="fragment">Some that you might be familiar with are:</p>
+
+  <ul class="fragment">
+    <li>by tag name… simply reference the name of the tag, and the style will be applied to all of those tags</li>
+    <li>by <code>class</code> name</li>
+    <li>by <code>id</code></li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="class-and-id">Class and ID</h2>
+
+  <p><code>class</code> and <code>id</code> are attributes that you can place in your elements. <strong>What’s the difference between the two again?</strong> →</p>
+
+  <ul>
+    <li>multiple elements in a document can have the same value for <code>class</code></li>
+    <li>but values for ids should be unique within a document - only one element can have an id with a specific value</li>
+    <li>an element may have both a class and id attribute.</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="using-class-and-id-selectors">Using Class and ID Selectors</h2>
+
+  <ul>
+    <li>to select elements with a specific <strong>class</strong>, prefix the class name with a period</li>
+    <li>to target an element with a specific <strong>id</strong>, prefix the id name with a hash sign (pound or number symbol)</li>
+  </ul>
+
+  <p>This has a selector, <code>.highlight</code> that gives an element a yellow background, and a couple of ids that specify borders.</p>
+
+  <iframe width="100%" height="300" src="https://jsfiddle.net/u9j2a58s/3/embedded/css,html,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</section>
+
+<section>
+  <h2 id="element-name-with-classid">Element Name with Class/ID</h2>
+
+  <p>You can use both a tag name and class or id as your selector for increased specificity:</p>
+
+  <ul>
+    <li>for an id: tagname#idvalue</li>
+    <li>for a class: tagname.classvalue</li>
+  </ul>
+
+  <p><strong>In the previous example, how could be modify the markup so that <code>div</code>s that are highlighted have a green background, while paragraphs that are highlighted stay with a yellow background?</strong> →</p>
+
+  <iframe width="100%" height="300" src="https://jsfiddle.net/yx1m40vf/1/embedded/css,html,result/" allowfullscreen="allowfullscreen" frameborder="0" class="fragment"></iframe>
+</section>
+
+<section>
+  <h2 id="more-attributes">More Attributes</h2>
+
+  <p>You’re not limited to <code>class</code> and <code>id</code> for attributes:</p>
+
+  <ul>
+    <li>you can actually specify any attribute and attribute value that you want!</li>
+    <li>use brackets, and within the brackets, either an <code>attribute </code> or <code>attribute_name='value'</code></li>
+    <li>examples:
+      <ul>
+        <li><code>[type='button']</code> - selects only elements with a type attribute that’s equal to “button”</li>
+        <li><code>[data-pinned]</code> - selects elements that just have an attribute called data-pinned (no associated value is necessary)</li>
+        <li><code>input[type='button']</code> - you can also prefix to specify tag with attribute!</li>
+      </ul>
+    </li>
+  </ul>
+
+</section>
+
+<section>
+  <h2 id="using-arbitrary-attributes">Using Arbitrary Attributes</h2>
+
+  <p>A couple of examples using attributes other than class or id:</p>
+
+  <iframe width="100%" height="300" src="https://jsfiddle.net/vLh2bjsj/1/embedded/css,html,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</section>
+
+<section>
+  <h2 id="multiple-selectors">Multiple Selectors</h2>
+
+  <p>In some of the previous examples, you have noticed that there were several selectors on one line, separated by commas.</p>
+
+  <p><strong>Selector grouping</strong> allows multiple selectors to be defined for a single rule:</p>
+
+  <iframe width="100%" height="300" src="https://jsfiddle.net/xLu3q2da/embedded/css,html,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</section>
+
+<section>
+  <h2 id="relationships">Relationships</h2>
+
+  <p>Relationships between elements can also be expressed with selectors! (<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/Selectors">from the CSS selectors article on MDN</a>):</p>
+
+  <ul>
+    <li><code>A E</code> …  <span class="fragment">Any E element that is a descendant of an A element (that is: a child, or a child of a child, etc.)</span></li>
+    <li><code>A &gt; E</code> … <span class="fragment">Any E element that is a (direct) child of an A element</span></li>
+    <li><code>E:first-child</code> … <span class="fragment">Any E element that is the first child of its parent</span></li>
+    <li><code>B + E</code> … <span class="fragment">Any E element that is the next sibling of a B element (that is: the next child of the same parent)</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="some-examples">Some Examples</h2>
+
+  <p>This demonstrates the selection of elements based on their relationships:</p>
+
+  <iframe width="100%" height="400" src="https://jsfiddle.net/v41xqhwc/embedded/css,html,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</section>
+
+<section>
+  <h2 id="pseudo-classes">Pseudo-classes</h2>
+
+  <p><strong>pseudo-classes</strong> are keywords that you add to a selector to specify the state of the element.</p>
+
+  <p><strong>For example, what are some states that you think an anchor element (a link) could have?</strong> →</p>
+
+  <ul class="fragment">
+    <li>hovered over</li>
+    <li>non-visited</li>
+    <li>visited</li>
+  </ul>
+
+  <p class="fragment"><strong>There are pseudo-classes for each of these states!</strong> →</p>
+</section>
+
+<section>
+  <h2 id="pseudo-classes-on-links">Pseudo Classes on Links</h2>
+
+  <ul>
+    <li><code>:hover</code> - mouse hovers over (any element, not just links)</li>
+    <li><code>:link</code> - non visited link</li>
+    <li><code>:visited</code> - visited link</li>
+  </ul>
+
+  <iframe width="100%" height="300" src="https://jsfiddle.net/gmot5jnL/embedded/css,html,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</section>
+
+<section>
+  <h2 id="beforeafter">Before/After</h2>
+
+  <p>Before and after actually lets you insert content before or after an element!</p>
+
+  <ul>
+    <li><code>::before</code></li>
+    <li><code>::after</code></li>
+    <li>they don’t actually appear in the dom!</li>
+  </ul>
+
+  <p>Some values that the content can be are</p>
+
+  <ul>
+    <li>a string</li>
+    <li>an image</li>
+  </ul>
+
+</section>
+<section>
+  <h2 id="before-and-after-example">Before and After Example</h2>
+
+  <p>Two examples, one with text… and the other with an image.</p>
+
+  <iframe width="100%" height="300" src="https://jsfiddle.net/yw8et5b0/embedded/css,html,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+</section>
+<section>
+  <h2 id="nth-child">nth-child</h2>
+
+  <p><strong>:nth-child(…)</strong> matches an element that is the <em>nth</em> child of its parent. Children are numbered starting from 1. The argument for nth-child can be:</p>
+
+  <ul>
+    <li><strong>a single integer</strong> - <code>nth-child(5)</code> - selects the 5th child</li>
+    <li><strong>a keyword, even or odd</strong> - <code>nth-child(even)</code> - selects every even numbered child</li>
+    <li><strong>an expression in the form of an + b</strong> - <code>nth-child(2n + 3)</code> - selects every 2nd child starting from the 3rd
+      <ul>
+        <li>n represents the sequence of integers starting from 0, and incrementing by 1</li>
+        <li>evaluating the expression gives you the number of each child selected (in the case above, 3, 5, 7, etc.)</li>
+      </ul>
+    </li>
+  </ul>
+
+</section>
+
+<section>
+  <h2 id="nth-child-examples">nth-child Examples</h2>
+
+  <p>Try out nth-child using the <a href="https://css-tricks.com/examples/nth-child-tester/">nth-child tester from css-tricks</a>…</p>
+
+  <p>Or, check out the fiddle:</p>
+
+  <iframe width="100%" height="300" src="https://jsfiddle.net/bowcbxLe/embedded/css,html,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+</section>
+
+<section>
+  <h2 id="specificity">Specificity</h2>
+
+  <p><strong>What color will the background of the list item be, and how did you come to that conclusion?</strong> →</p>
+
+  <iframe width="100%" height="300" src="//jsfiddle.net/5jmsm4t8/embedded/html,css,result" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+</section>
+
+<section>
+  <h2 id="specificity-calculation">Specificity Calculation</h2>
+
+  <p>The <a href="http://www.w3.org/TR/css3-selectors/#specificity">CSS 3specs</a> provides an algorithm for determining <strong>specificity</strong> - which selector has precedence over another:</p>
+
+  <ul>
+    <li>count the number of <strong>ID selectors</strong> in the selector (= a)</li>
+    <li>count the number of <strong>class selectors</strong>, attributes selectors, and pseudo-classes in the selector (= b)</li>
+    <li>count the number of <strong>type selectors</strong> (this includes <em>regular</em> elements) and <strong>pseudo-elements</strong> in the selector (= c)</li>
+    <li>ignore the universal selector and the negation pseudo-selector (but count selectors within it)</li>
+    <li>concatenate the three numbers a-b-c (in a number system with a large base)</li>
+    <li>larger specificity wins</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="specificity-examples">Specificity Examples</h2>
+
+  <p>Whew… um, so how did that <em>actually</em> work? Let’s check out some examples:</p>
+
+  <ul>
+    <li><a href="http://specificity.keegan.st/">this specificity calculator</a> also includes inline styles as part of its calculation</li>
+    <li><a href="http://www.w3.org/TR/css3-selectors/#specificity">the CSS3 specs</a> also have some examples</li>
+  </ul>
+
+</section>
+<section>
+  <h2 id="generally-switch-classes-not-styles">Generally, Switch Classes, Not Styles</h2>
+
+  <p>Try to avoid access style… and instead toggle classes</p>
+
+  <ul>
+    <li>have your styles pre-built in your css</li>
+    <li>use classList to toggle classes than</li>
+    <li>helps prevent mixing logic and presentation from being too intertwined
+      <ul>
+        <li>for example, matching colors in your css and your js</li>
+        <li>allows you to change styles without modifying code</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="even-better">Even Better</h2>
+  <ul>
+    <li>flexbox</li>
+    <li>grids</li>
+  </ul>
+
+</section>
+
+	</div>
+	<script src="js/slides.js"></script>
+</body>
+</html>

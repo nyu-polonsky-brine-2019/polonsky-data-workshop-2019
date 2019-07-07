@@ -1,0 +1,18 @@
+body {
+	font-family: 'Merriweather', serif;
+	font-size: 2em;
+	text-align: center;
+}
+
+#content {
+	width : 700px;
+	margin: auto;
+}
+
+#content > ul {
+	width : 450px;
+	text-align: left;
+	margin: auto;
+}
+
+

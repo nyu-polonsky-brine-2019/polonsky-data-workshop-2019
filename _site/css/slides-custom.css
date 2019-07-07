@@ -1,0 +1,43 @@
+body {
+	font-family: 'Merriweather', serif;
+}
+
+strong {
+	background-color: #ff7;
+}
+
+h3 {
+	color: #090;
+}
+
+h4 {
+	font-size: 0.75em;
+}
+
+aside {
+	color: #090;
+}
+
+small {
+	font-size: 0.75em;
+}
+
+code, pre {
+	background-color: #ddd;
+}
+
+code {
+	font-size: 0.85em;
+}
+
+pre {
+	padding: 0.5em;
+}
+
+li, ol {
+	margin-bottom: 0.5em;
+}
+
+li li, ol ol, li ol, ol li {
+	margin-top: 0.5em;
+}
