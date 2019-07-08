@@ -6,9 +6,321 @@ title: Data Formats and Databases
 <section markdown="block" class="intro-slide">
 # Data Formats and Databases
 
+</section>
+
+<section markdown="block">
+##  Storing Data
+</section>
+
+<section markdown="block">
+##  It's All 0's and 1's
+
+* computers deal with data as a series of __bits__ or _binary digits_
+* a __bit__ (binary digit) can hold only one of two values, a __0__ or __1__
+* turns out, storing 0's and 1's is convenient for computers. __why?__ &rarr;
+
+<div class="fragment" markdown="block">
+* easily represented by electronics!
+* 0 and 1 are essentially analogous to off and on 💡
+* (or the presence or absence of a specific charge or voltage, or if some material is magnetized or not) 🔌
+</div>
+</section>
+
+<section markdown="block">
+## Physical Media
+
+To prove that I'm not lying  🤥 about this whole 0's and ones thing, let's look at some actual physical media where we might store some date.
+
+Now __this physical media__ is a bit _outdated_ at this point, but it still illustrates that data is just 0's and 1's:
+
+* [punch cards](https://en.wikipedia.org/wiki/Punched_card#/media/File:IBM1130CopyCard.agr.jpg) 🕳   🕳 🕳 
+* [an image of measurements of magnetic forces on a hard drive platter](http://blogs.discovermagazine.com/d-brief/2015/07/30/data-hard-drive/) 🧲
 
 </section>
 
+<section markdown="block">
+##  Back to Bits
+
+__If I have 1 bit, how many possible values can that bit represent (one way to think about this is: what are the possible values that the single bit can hold) ?__ &rarr;
+
+<div class="fragment" markdown="block">
+* 2 pieces of information:
+	* 0 and 1
+
+__How about 2 sequential bits?__ &rarr;
+
+* 4 (2 x 2) pieces of information (or 4 different combinations of 0's and 1's):
+	* 00, 01, 10, 11
+</div>
+</section>
+
+<section markdown="block">
+##  Bytes
+
+A __byte__ is 8 bits.  __How many possible combinations of 0's and 1's are there in 8 bits?__ &rarr;
+
+<div class="fragment" markdown="block">
+* 256 possible combinations (2 x 2 x 2 x 2 x 2 x 2 x 2 x 2)!
+* computers can use a __byte__ to encode different kinds of data!
+	* numbers
+	* letters
+</div>
+</section>
+
+<section markdown="block">
+## A Step Back
+
+Given this nuumber: __1,815__.... __What does the number 8 represent? What about the number 5?__ &rarr;
+
+* {:.fragment} the number of "100's" and the number of "1's"
+* {:.fragment} __What's the relationship among the numbers, 1, 10, 100, and 1000?__
+* {:.fragment} they're all powers of 10
+* {:.fragment} so one way to think about 1,815 is:
+	* {:.fragment} Add 1 * 10^3  to 8 * 10^2... etc.
+* {:.fragment} side note... given a single digit (or a place in a number), what are the possible values of that digit?
+	* {:.fragment} 0 through 9
+
+
+</section>
+
+<section markdown="block">
+## A Question
+
+__What if a numbering system existed that were not based on powers of 10? 🤯__ &rarr;
+
+* {:.fragment} perhaps using powers of 2...
+	* {:.fragment} the possible values of each digit are 0 and 1
+	* {:.fragment} hey, that sounds familiar! 🤔
+	* {:.fragment} this is called __binary__
+* {:.fragment} or powers of 16 
+	* {:.fragment} this is called __hexadecimal__
+
+</section>
+
+<section markdown="block">
+##  Storing Numbers
+
+__Using a binary numbering system, a computer can store the numbers 0 through 255 in a single _byte_.__ &rarr;
+
+* a series of 8 bits represents numbers 0 to 255
+* each bit is in a place: `_ _ _ _ _ _ _ _`
+* each place represents the presence or absence of a power of 2:
+* summing all of the places gives the decimal version...
+</section>
+
+<section markdown="block">
+## Binary Numbering System
+
+__An example of a number based on powers of 2: 00101000__ &rarr;
+
+<pre><code data-trim contenteditable>
+
+2^7 | 2^6 | 2^5 | 2^4 | 2^3 | 2^2 | 2^1 | 2^0
+----+-----+-----+-----+-----+-----+-----+-----
+128 | 64  | 32  | 16  |  8  |  4  |  2  |  1
+----+-----+-----+-----+-----+-----+-----+-----
+ 0  |  0  |  1  |  0  |  1  |  0  |  0  |  0   = 40
+----+-----+-----+-----+-----+-----+-----+-----
+</code></pre>
+
+</section>
+
+<section markdown="block">
+##  Storing Numbers Continued
+
+* the first bit represents either 0 or 1 ...  __1__'s
+* the second bit represents either 0 or 1 ...  __2__'s
+* the third bit represents either 0 or 1 ... __4__'s
+* the fourth bit represents either 0 or 1 ... __8__'s
+* .... and so on through the 8th bit, or 2 to the 7th, which represents 128 (notice that each place is just a power of 2, starting at 2 to the 0th power!)
+* all of these added together give a number between 0 and 255
+* sometimes this is called a base-2 numeral system
+* __how does a base-10 numeral system work?__
+</section>
+
+
+<section markdown="block">
+##  Storing Numbers - Examples
+
+* __00011100__
+	* (0 x 128) + (0 x 64) + (0 x 32) + (1 x 16) + (1 x 8) +  (1 x 4) + (0 x 2) + (0 x 1)
+	* &rarr; 28
+* __01000010__
+	* (0 x 128) + (1 x 64) + (0 x 32) + (0 x 16) + (0 x 8) +  (0 x 4) + (1 x 2) + (0 x 1)
+	* &rarr; 66
+</section>
+
+<section markdown="block">
+##  Storing Numbers - Questions
+
+__00000001__ &rarr;
+
+1
+{:.fragment}
+
+__00000010__ &rarr;
+{:.fragment}
+
+2
+{:.fragment}
+
+__00000011__ &rarr;
+{:.fragment}
+
+3
+{:.fragment}
+
+__00000100__ &rarr;
+{:.fragment}
+
+4
+{:.fragment}
+
+</section>
+
+<section markdown="block">
+##  Storing Numbers - Questions Continued
+
+<div class="fragment" markdown="block">
+__10000101__ &rarr;
+
+133
+{:.fragment}
+
+__10000001__ &rarr;
+{:.fragment}
+
+129
+{:.fragment}
+
+__00100000__ &rarr;
+{:.fragment}
+
+32
+{:.fragment}
+
+</div>
+</section>
+
+<section markdown="block">
+##  An Addendum to Storing Numbers
+
+* note that this works well for integers...
+* specifically 0 through 255
+* to work with more numbers, use more bits!
+* there are also other encoding schemes
+* __what are some other characteristics of numbers that can be encoded?__ &rarr;
+
+<div class="fragment" markdown="block">
+* sign (negative or positive numbers)
+* decimal point (real / floating point numbers)
+</div>
+
+</section>
+
+<section markdown="block">
+##  Storing Letters and Other Characters
+
+Storing numbers is a breeze - using bits to represent binary numbers works well.  __How do you think letters and punctuation are stored using bits?__ &rarr;
+
+<div class="fragment" markdown="block">
+Since it's easy to store numbers, use some sort of encoding scheme that translates numeric values into characters.
+</div>
+</section>
+
+<section markdown="block">
+##  ASCII
+
+One encoding scheme is called __ASCII__.
+
+* __ASCII__ defines a set of numeric codes that can be translated to English letters, punctuation marks and other characters
+* the first version of __ASCII__ stored characters in 7 bits
+
+__How many different characters can be stored in 7 bits?__ &rarr;
+
+<div class="fragment" markdown="block">
+128 characters... [see the table on wikipedia](http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters)
+</div>
+
+</section>
+
+<section markdown="block">
+##  ASCII Continued
+
+ASCII is an older encoding scheme that has some flaws.  __What do you think ASCII's major shortcoming is?__ &rarr;
+
+<div class="fragment" markdown="block">
+* it can only store 128 _English_ characters!
+* what about additional alphabets and writing systems?
+* (for example Chinese characters number in the tens of thousands)
+</div>
+</section>
+
+<section markdown="block">
+##  Unicode
+
+The current __standard__ for consistently representing text through different character sets and encodings is called __unicode__.
+
+* in __unicode__, __code points__ are numbers (specifically integers) that represents a _character_ or _glyph_
+* the most current version of unicode supports 110,000 characters
+* here's a table of [code points](http://www.utf8-chartable.de/unicode-utf8-table.pl?utf8=dec)
+	* note that 65-90 are uppercase latin letters; 97-122 are lowercase
+	* this matches the older, but limited encoding scheme, ASCII
+* here's a [unicode snowman](http://unicodesnowmanforyou.com)
+</section>
+
+<section markdown="block">
+##  UTF8 vs ...
+
+Representation of Data
+Use bits! ... 0's and 1's
+
+straightforward for numbers... use numbers, perhaps it may be a set number of bits
+representing text.... mapping of numbers to characters 65... A... in some encodings
+unicode is just the mapping`
+WAT about encoding???
+utf-8
+utf-16
+utf-32
+utf-8
+Variable length encoding. Even though only 8 bits / 1 byte, can represent other unicode characters by adding additional bytes (higher bytes specify whether or no other bytes should be combined).
+
+sometimes encoding of file is not known
+...if you have a series of bytes, you can decode with an scheme of your choice (utf-8, latin-1, etc.?)
+If using mostly ASCII characters, then utf-8 is a great choice. However, if characters require more than one byte, utf-16, might be a better option. utf-32 might take up too much space for every character to be practical.
+
+</section>
+
+
+<section markdown="block">
+## xxd, file, inconv
+
+DEMO!
+
+</section>
+
+
+<section markdown="block">
+## DOCX? 
+
+* create sample docx file
+	* cat it
+	* unzip it
+	* xml!
+
+</section>
+
+<section markdown="block">
+## Let's Play a Character Encoding Game
+
+FUN! 🙄
+
+* Download this file: [Olaf van Geldern, by Pencho Slaveykov](https://www.kaggle.com/rtatman/character-encoding-examples)
+* Try opening it just by double clicking on it... what do you see?
+	* {:.fragment} It's actually not encoded in Unicode (or even ASCII)
+	* {:.fragment} It's encoded using [Windows-1251](https://en.wikipedia.org/wiki/Windows-1251)
+	* {:.fragment} (Note that the differences with [extended ASCII](http://www.asciitable.com/)
+</section>
 
 <section markdown="block">
 ## Data Formats
