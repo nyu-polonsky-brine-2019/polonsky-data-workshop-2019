@@ -29,11 +29,11 @@ title: Data Formats and Databases
 <section markdown="block">
 ## Physical Media
 
-To prove that I'm not lying  🤥 about this whole 0's and ones thing, let's look at some actual physical media where we might store some date.
+To prove that I'm not lying  🤥 about this whole 0's and 1's thing, let's look at some actual physical media where we might store some date.
 
-Now __this physical media__ is a bit _outdated_ at this point, but it still illustrates that data is just 0's and 1's:
+The following __physical media__ is a bit _outdated_, but it still illustrates that data is just 0's and 1's:
 
-* [punch cards](https://en.wikipedia.org/wiki/Punched_card#/media/File:IBM1130CopyCard.agr.jpg) 🕳   🕳 🕳 
+* [punch cards](https://en.wikipedia.org/wiki/Punched_card#/media/File:IBM1130CopyCard.agr.jpg) 🕳  🕳 🕳 
 * [an image of measurements of magnetic forces on a hard drive platter](http://blogs.discovermagazine.com/d-brief/2015/07/30/data-hard-drive/) 🧲
 
 </section>
@@ -41,23 +41,25 @@ Now __this physical media__ is a bit _outdated_ at this point, but it still illu
 <section markdown="block">
 ##  Back to Bits
 
-__If I have 1 bit, how many possible values can that bit represent (one way to think about this is: what are the possible values that the single bit can hold) ?__ &rarr;
+If I have __1 bit__, how __many possible values can that bit represent__ (one way to think about this is: what are the possible values that the single bit can hold)? &rarr;
 
 <div class="fragment" markdown="block">
 * 2 pieces of information:
 	* 0 and 1
+</div>
 
 __How about 2 sequential bits?__ &rarr;
+{:.fragment}
 
 * 4 (2 x 2) pieces of information (or 4 different combinations of 0's and 1's):
 	* 00, 01, 10, 11
-</div>
+{:.fragment}
 </section>
 
 <section markdown="block">
 ##  Bytes
 
-A __byte__ is 8 bits.  __How many possible combinations of 0's and 1's are there in 8 bits?__ &rarr;
+A __byte__ is __8 bits__.  How many possible __combinations__ of __0's and 1's__ are there in __8 bits?__ &rarr;
 
 <div class="fragment" markdown="block">
 * 256 possible combinations (2 x 2 x 2 x 2 x 2 x 2 x 2 x 2)!
@@ -70,7 +72,7 @@ A __byte__ is 8 bits.  __How many possible combinations of 0's and 1's are there
 <section markdown="block">
 ## A Step Back
 
-Given this nuumber: __1,815__.... __What does the number 8 represent? What about the number 5?__ &rarr;
+Given this number: __1,815__.... __What does the number 8 represent? What about the number 5?__ &rarr;
 
 * {:.fragment} the number of "100's" and the number of "1's"
 * {:.fragment} __What's the relationship among the numbers, 1, 10, 100, and 1000?__
@@ -93,6 +95,7 @@ __What if a numbering system existed that were not based on powers of 10? 🤯__
 	* {:.fragment} hey, that sounds familiar! 🤔
 	* {:.fragment} this is called __binary__
 * {:.fragment} or powers of 16 
+	* {:.fragment} there are 16  possible values: 1-9, A-F 
 	* {:.fragment} this is called __hexadecimal__
 
 </section>
@@ -113,29 +116,31 @@ __Using a binary numbering system, a computer can store the numbers 0 through 25
 
 __An example of a number based on powers of 2: 00101000__ &rarr;
 
-<pre><code data-trim contenteditable>
-
-2^7 | 2^6 | 2^5 | 2^4 | 2^3 | 2^2 | 2^1 | 2^0
+<pre><code data-trim contenteditable> 2^7 | 2^6 | 2^5 | 2^4 | 2^3 | 2^2 | 2^1 | 2^0
 ----+-----+-----+-----+-----+-----+-----+-----
 128 | 64  | 32  | 16  |  8  |  4  |  2  |  1
 ----+-----+-----+-----+-----+-----+-----+-----
- 0  |  0  |  1  |  0  |  1  |  0  |  0  |  0   = 40
+ 0  |  0  |  1  |  0  |  1  |  0  |  0  |  0  
 ----+-----+-----+-----+-----+-----+-----+-----
 </code></pre>
+
+<pre><code data-trim contenteditable>32 + 8 = 40
+</code></pre>
+{:.fragment}
+
 
 </section>
 
 <section markdown="block">
 ##  Storing Numbers Continued
 
-* the first bit represents either 0 or 1 ...  __1__'s
-* the second bit represents either 0 or 1 ...  __2__'s
-* the third bit represents either 0 or 1 ... __4__'s
-* the fourth bit represents either 0 or 1 ... __8__'s
-* .... and so on through the 8th bit, or 2 to the 7th, which represents 128 (notice that each place is just a power of 2, starting at 2 to the 0th power!)
-* all of these added together give a number between 0 and 255
-* sometimes this is called a base-2 numeral system
-* __how does a base-10 numeral system work?__
+* {:.fragment} the first bit represents either 0 or 1 ...  __1__'s
+* {:.fragment} the second bit represents either 0 or 1 ...  __2__'s
+* {:.fragment} the third bit represents either 0 or 1 ... __4__'s
+* {:.fragment} the fourth bit represents either 0 or 1 ... __8__'s
+* {:.fragment} .... and so on through the 8th bit, or 2 to the 7th, which represents 128 (notice that each place is just a power of 2, starting at 2 to the 0th power!)
+* {:.fragment} all of these added together give a number between 0 and 255
+* {:.fragment} sometimes this is called a base-2 numeral system (compared with base-10 / decimal that we're familiar with)
 </section>
 
 
@@ -207,14 +212,10 @@ __00100000__ &rarr;
 
 * note that this works well for integers...
 * specifically 0 through 255
-* to work with more numbers, use more bits!
-* there are also other encoding schemes
-* __what are some other characteristics of numbers that can be encoded?__ &rarr;
-
-<div class="fragment" markdown="block">
-* sign (negative or positive numbers)
-* decimal point (real / floating point numbers)
-</div>
+* {:.fragment} what if we need more numbers? <strong class="fragment">use more bits!</strong>
+* {:.fragment} this still isn't quite enough, though: __what are some other characteristics of numbers that can be encoded?__ &rarr;
+	* {:.fragment} sign (negative or positive numbers)
+	* {:.fragment} decimal point (real / floating point numbers)
 
 </section>
 
@@ -238,9 +239,11 @@ One encoding scheme is called __ASCII__.
 
 __How many different characters can be stored in 7 bits?__ &rarr;
 
-<div class="fragment" markdown="block">
 128 characters... [see the table on wikipedia](http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters)
-</div>
+{:.fragment}
+
+There are also many encodings that [extended ASCII by using 8 bits instead of 7](https://en.wikipedia.org/wiki/Extended_ASCII), and one common version is: [ISO 8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1#Code_page_layout)
+{:.fragment}
 
 </section>
 
@@ -270,43 +273,66 @@ The current __standard__ for consistently representing text through different ch
 </section>
 
 <section markdown="block">
-##  UTF8 vs ...
+##  utf-8, utf-16, utf-32
 
-__unicode__ is just the mapping of numbers to _glyphs_ ... but the actual storage of those numbers is the _encoding_. You may have seen encodings like 
-Representation of Data
-Use bits! ... 0's and 1's
+__unicode__ is just the mapping of numbers to _glyphs_ (characters / symbols)... but the actual storage of those numbers is the _encoding_. So unicode can be encoded as utf-8, utf-16, or utf-32.
 
-WAT about encoding???
-utf-8
-utf-16
-utf-32
-utf-8
-Variable length encoding. Even though only 8 bits / 1 byte, can represent other unicode characters by adding additional bytes (higher bytes specify whether or no other bytes should be combined).
+__What's the difference?__ It's all unicode, _right_? 🙃
+{:.fragment}
 
-sometimes encoding of file is not known
-...if you have a series of bytes, you can decode with an scheme of your choice (utf-8, latin-1, etc.?)
-If using mostly ASCII characters, then utf-8 is a great choice. However, if characters require more than one byte, utf-16, might be a better option. utf-32 might take up too much space for every character to be practical.
+* {:.fragment} __utf-8__ is actually a __variable length encoding__; it's minimally 1 byte, but could be up to 4 bytes! It's also compatible with ASCII
+* {:.fragment} __utf-16__ is also variable length: either 2 bytes or 4 bytes
+* {:.fragment} __utf-32__ is fixed length 4 bytes
 
-can't guarantee detection of encoding, info is not included in file
-different editors / viewers will use different strategies, but no guarantee since encoding info is not included in file!
-
-some tools: file, enca
-
-
+__Y SO MANY ENCODINGS FOR UNICODE?__ &rarr;
+{:.fragment}
 
 </section>
-
 
 <section markdown="block">
-## xxd, file, inconv
+## Which Unicode Encoding to Use?
 
-http://www.ddginc-usa.com/online-hex-dump.htm
+Ok... __why use one encoding over another__ (utf-8 vs 16 vs 32)? &rarr;
 
-DEMO!
+* {:.fragment} if text is english (mostly ASCII), then use utf-8... <span class="fragment">why?</span>
+	* {:.fragment} __takes up less space__!
+* {:.fragment} if other language, choose the encoding that best accommodates that character set
+</section>
+<section markdown="block">
+## Can We See the 1's and 0's?
+
+In an earlier slide, we saw the physical medium that stores data shows 1's and 0's... __but can we see those 1's and 0's instead of the text from a file__ &rarr;
+
+Yes! Some systems have a commandline tool called `xxd` to _dump_ the binary version of a file... but you can also check out some graphical tools [like this online app](http://www.ddginc-usa.com/online-hex-dump.htm)
+{:.fragment}
+
+Let's do a quick demo where we:
+{:.fragment}
+
+1. {:.fragment} create a file
+2. {:.fragment} dump the binary
+3. {:.fragment} manually decode the binary and compare to the file
+
+</section>
+
+<section markdown="block">
+## Uh Oh... Mystery File! 🕵
+
+Ok. Sooo... how is this practical _at all_? __Why might knowing about encodings be useful?__ &rarr;
+
+__Sometimes you source a file, but you don't know what encoding it is__
+{:.fragment}
+
+
+* {:.fragment} If you have a series of bytes, you can decode with an scheme of your choice (utf-8, latin-1, etc.?)
+* {:.fragment} Automatic detection of encoding is tricky! (type of encoding isn't embedded in a file!)
+* {:.fragment} Different editors / viewers will use different strategies, but no guarantee guess will be right! 😮
+* {:.fragment} btw, some tools: `file` and [enca](https://github.com/nijel/enca)
 
 </section>
 
 
+<!--
 <section markdown="block">
 ## DOCX? 
 
@@ -316,6 +342,13 @@ DEMO!
 	* xml!
 
 </section>
+<section markdown="block">
+## Other Data
+
+http://paulbourke.net/dataformats/tiff/
+
+</section>
+-->
 
 <section markdown="block">
 ## Let's Play a Character Encoding Game
@@ -330,12 +363,6 @@ FUN! 🙄
 </section>
 
 
-<section markdown="block">
-## Other Data
-
-http://paulbourke.net/dataformats/tiff/
-
-</section>
 <section markdown="block">
 ## Data Formats
 
@@ -379,7 +406,6 @@ __Tab-delimited__ and <strong>C</strong>omma <strong>S</strong>eparated <strong>
 These files are “human-readable” and can be easily imported into spreadsheets and databases. ... Some examples:
 {:.fragment}
 
-* {:.fragment} [Tab-delimited: U.S. Census School districts](http://www.census.gov/geo/maps-data/data/gazetteer2010.html)
 * {:.fragment} [Comma-separated values or comma-delimited: NYC Open data list of colleges](https://data.cityofnewyork.us/Education/Colleges-and-Universities/4kym-4xw5) 
 
 __Let's check out some of these files in a text editor, as well as a spreadsheet...__ &rarr;
@@ -395,7 +421,7 @@ __What are some observations that you can make about these files?__ &rarr;
 
 * {:.fragment} may or may not have a first row of column __headers__
 * {:.fragment} headers may be difficult to interpret without __companion documentation__ or __data dictionary__
-	* {:.fragment} here's a _crazy_ example of some very [thorough documentation](https://www.ars.usda.gov/ARSUserFiles/80400525/Data/SR-Legacy/SR-Legacy_Doc.pdf) for this set of data for the [USDA National Nutrient Database](https://www.ars.usda.gov/ARSUserFiles/80400525/Data/SR-Legacy/SR-Leg_ASC.zip)
+	* {:.fragment} here's a _crazy_ example of some very [thorough documentation](https://www.ars.usda.gov/ARSUserFiles/80400525/Data/SR-Legacy/SR-Legacy_Doc.pdf) for this set of data for the [USDA National Nutrient Database](https://www.ars.usda.gov/ARSUserFiles/80400525/Data/SR-Legacy/SR-Leg_ASC.zip) (see ~pg 9)
 * {:.fragment} CSV can mean _delimited by a character other than comma!_ (😲)
 * {:.fragment} what if you want the separator character in your actual data? (one strategy: "wrap it in quotation marks")
 </section>
@@ -463,7 +489,7 @@ Speaking of __XML__ and __tags__...
 <section markdown="block">
 ## XML Continued
 
-__XML__ itself is the building block of other languages / file formats
+__XML__ itself is the building block of other formats
 
 * {:.fragment} it's a general markup language in that it __defines syntax__, __but not tags__; you must define tags yourself through an __XML Schema__ (or alternatively, through a <strong>D</strong>ocument <strong>T</strong>ype <strong>D</strong>eclaration)
 * {:.fragment} an __XML Schema__ imposes user defined constraints on the structure and content of an XML file 🔨
@@ -536,11 +562,18 @@ __Unlike XML, JSON does not require a predefined schema__. With that said, you'l
 ## Unstructured Data 
 
 * {:.fragment} the previous data we saw was __structured__: it was organized in a predefined way
-* {:.fragment} scholars who use literature for textual analysis will often refer to their sources as __unstructured data__.
-* {:.fragment} for example, Tolstoy’s War and Peace might be considered unstructured data consisting of words 📚
-* {:.fragment} __what are some other unstructured datasets that you can think of?__ &rarr; <span class="fragment">(hint: [see the wikipedia](https://en.wikipedia.org/wiki/Unstructured_data))</span>
-	* {:.fragment} journals, health records, songs / popular music, film / tv, images, 
-	* {:.fragment} portions of structured data may be unstructured: body of an email, parts of a web page, or parts of a word-processor doc, a tweet, blog entry 🙃
+* {:.fragment} scholars using literature for textual analysis often refer to their sources as __unstructured data__: 
+* {:.fragment} for example Tolstoy’s War and Peace can be considered unstructured data 
+
+</section>
+
+<section markdown="block">
+##  Unstructured Data Continued
+
+ __What are some other unstructured datasets that you can think of?__ &rarr; <span class="fragment">(hint: [see the wikipedia](https://en.wikipedia.org/wiki/Unstructured_data))</span>
+
+* {:.fragment} journals, health records, songs / popular music, film / tv, images, 
+* {:.fragment} portions of structured data may be unstructured: body of an email, parts of a web page, or parts of a word-processor doc, a tweet, blog entry 🙃
 
 
 </section>
@@ -574,6 +607,7 @@ __What are factors should be considered when deciding which to use?__ 🤔 &rarr
 * {:.fragment} __programmatic / automated manipulation of data__
 	* {:.fragment} while spreadsheets provide programming facilities, they are usually not as robust as dedicated programming languages / environments
 	* {:.fragment} pre-built libraries and modules for programming are usually geared towards databases rather than spreadsheets
+* {:.fragment} databases also provide features for dealing with __"client" access, multiple clients, dealing with transactions, etc.__ 
 
 </section>
 
