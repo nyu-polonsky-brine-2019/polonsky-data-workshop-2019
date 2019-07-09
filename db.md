@@ -272,12 +272,10 @@ The current __standard__ for consistently representing text through different ch
 <section markdown="block">
 ##  UTF8 vs ...
 
+__unicode__ is just the mapping of numbers to _glyphs_ ... but the actual storage of those numbers is the _encoding_. You may have seen encodings like 
 Representation of Data
 Use bits! ... 0's and 1's
 
-straightforward for numbers... use numbers, perhaps it may be a set number of bits
-representing text.... mapping of numbers to characters 65... A... in some encodings
-unicode is just the mapping`
 WAT about encoding???
 utf-8
 utf-16
@@ -289,11 +287,20 @@ sometimes encoding of file is not known
 ...if you have a series of bytes, you can decode with an scheme of your choice (utf-8, latin-1, etc.?)
 If using mostly ASCII characters, then utf-8 is a great choice. However, if characters require more than one byte, utf-16, might be a better option. utf-32 might take up too much space for every character to be practical.
 
+can't guarantee detection of encoding, info is not included in file
+different editors / viewers will use different strategies, but no guarantee since encoding info is not included in file!
+
+some tools: file, enca
+
+
+
 </section>
 
 
 <section markdown="block">
 ## xxd, file, inconv
+
+http://www.ddginc-usa.com/online-hex-dump.htm
 
 DEMO!
 
@@ -322,6 +329,13 @@ FUN! 🙄
 	* {:.fragment} (Note that the differences with [extended ASCII](http://www.asciitable.com/)
 </section>
 
+
+<section markdown="block">
+## Other Data
+
+http://paulbourke.net/dataformats/tiff/
+
+</section>
 <section markdown="block">
 ## Data Formats
 
