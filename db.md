@@ -775,9 +775,9 @@ Let's examine the highlighted ones in more detail. &rarr;
 __Live demo...__ &rarr;
 
 * {:.fragment} scripting in MySQL to create and populate tables, using gui
-	* single table (books)
-	* phpmyadmin for web interface
-		* [using the public trial version](https://www.phpmyadmin.net/try/)
+	* single table 
+	* [using the public trial version](https://www.phpmyadmin.net/try/)
+	* [or using db-fiddle](https://www.db-fiddle.com/)
 * {:.fragment} writing queries in MySQL to analyze data
 	* use er diagram to show relationships among tables
 	* artists, paintings, media and countries – MySQL demo
