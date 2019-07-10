@@ -608,7 +608,7 @@ __What are factors should be considered when deciding which to use?__ 🤔 &rarr
 * {:.fragment} __programmatic / automated manipulation of data__
 	* {:.fragment} while spreadsheets provide programming facilities, they are usually not as robust as dedicated programming languages / environments
 	* {:.fragment} pre-built libraries and modules for programming are usually geared towards databases rather than spreadsheets
-* {:.fragment} databases also provide features for dealing with __"client" access, multiple clients, dealing with transactions, etc.__ 
+* {:.fragment} databases also provide features for dealing with __"client" access, multiple clients, transactions, etc.__ 
 
 </section>
 
@@ -737,7 +737,7 @@ Let's examine the highlighted ones in more detail. &rarr;
 [FileMaker Pro](www.filemaker.com) is a database server _and_ graphical user interface 
 
 * {:.fragment} long history and successful product in many environments (cross-platform MacOS and Windows)
-* {:.fragment} early desktop database to integrate multimedia, images, etc.; available for iPhone / iPad applications and one of the first to integrate with clients’ websites
+* {:.fragment} early desktop database to integrate multimedia, images, etc.
 * {:.fragment} anecdotally - seen used in small businesses / organizations / non-profits... for __inventory management__, __donations__, etc.
 	* [current stories](http://www.filemaker.com/solutions/customers/)
 * {:.fragment} although not open source, widely used in the __archival world__ (part of the Digital Humanities community)
@@ -758,10 +758,10 @@ Let's examine the highlighted ones in more detail. &rarr;
 ## SQLite 
 
 * {:.fragment} SQLite is the most widely installed relational database as it is used with every Android and iPhone device.
-* {:.fragment} open source and widely used; commonly embedded in desktop applications / used as a prototyping tool due to ease of deployment
+* {:.fragment} open source and very popular; commonly embedded in desktop applications / used as a prototyping tool due to ease of deployment
 	* see [http://sqlite.org/famous.html](http://sqlite.org/famous.html)
 	* (e.g. Adobe’s Photoshop LightRoom, Chrome to store cookie data)
-* {:.fragment} can we used with many different programming languages... [see SQLite Wrappers](http://www.sqlite.org/cvstrac/wiki?p=SqliteWrappers)
+* {:.fragment} can be used with many different programming languages... [see SQLite Wrappers](http://www.sqlite.org/cvstrac/wiki?p=SqliteWrappers)
 
 </section>
 
@@ -777,7 +777,7 @@ __Live demo...__ &rarr;
 	* [single table first](movies.sql)
 * {:.fragment} writing queries in MySQL to analyze data
 	* use er diagram to show relationships among tables
-* try both again with [multiple tables](movies_fk.sql)
+* {:.fragment} try both again with [multiple tables](movies_fk.sql)
 
 </section>
 
