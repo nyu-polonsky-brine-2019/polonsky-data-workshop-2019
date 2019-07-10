@@ -357,9 +357,10 @@ FUN! 🙄
 
 * Download this file: [Olaf van Geldern, by Pencho Slaveykov](https://www.kaggle.com/rtatman/character-encoding-examples)
 * Try opening it just by double clicking on it... what do you see?
-	* {:.fragment} It's actually not encoded in Unicode (or even ASCII)
+	* {:.fragment} It's actually not encoded in Unicode (or even _regular_ ASCII)
 	* {:.fragment} It's encoded using [Windows-1251](https://en.wikipedia.org/wiki/Windows-1251)
-	* {:.fragment} (Note that the differences with [extended ASCII](http://www.asciitable.com/)
+	* {:.fragment} (Note the differences with [extended ASCII](http://www.asciitable.com/)
+	* {:.fragment} Try: `UTF-8`, `WINDOWS-1251` (sometimes cp1251), `ISO-8859-1`
 </section>
 
 
