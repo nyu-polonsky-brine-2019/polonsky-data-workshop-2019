@@ -325,9 +325,9 @@ __Sometimes you source a file, but you don't know what encoding it is__
 
 
 * {:.fragment} If you have a series of bytes, you can decode with an scheme of your choice (utf-8, latin-1, etc.?)
-* {:.fragment} Automatic detection of encoding is tricky! (type of encoding isn't embedded in a file!)
-* {:.fragment} Different editors / viewers will use different strategies, but no guarantee guess will be right! 😮
-* {:.fragment} btw, some tools: `file` and [enca](https://github.com/nijel/enca)
+* {:.fragment} Automatic detection of encoding is tricky! (no standard for embedding encoding a file, usually encoding not even included!)
+* {:.fragment} Editors/viewers will use different strategies, but no guarantee guess will be right! 😮
+* {:.fragment} btw, some tools: `file` and [enca](https://github.com/nijel/enca) 
 
 </section>
 
@@ -355,7 +355,7 @@ http://paulbourke.net/dataformats/tiff/
 
 FUN! 🙄
 
-* Download this file: [Olaf van Geldern, by Pencho Slaveykov](https://www.kaggle.com/rtatman/character-encoding-examples)
+* Download this file: [Olaf van Geldern, by Pencho Slaveykov](https://www.gutenberg.org/files/4909/old/olavg10.txt)
 * Try opening it just by double clicking on it... what do you see?
 	* {:.fragment} It's actually not encoded in Unicode (or even _regular_ ASCII)
 	* {:.fragment} It's encoded using [Windows-1251](https://en.wikipedia.org/wiki/Windows-1251)
@@ -710,14 +710,9 @@ Reliability and [ACID compliance](https://en.wikipedia.org/wiki/ACID) - Atomicit
 <section markdown="block">
 ## Quick Demo: Database Design
 
-Let's use an __[ER Diagram](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model)__ to design tables and their relationships for storing the following data: &rarr;
+Let's use an __[ER Diagram](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model)__ to design tables and their relationships for storing movies. What data / fields might we want to store?
 
-* {:.fragment} first name
-* {:.fragment} last name
-* {:.fragment} street address
-* {:.fragment} city
-* {:.fragment} state
-* {:.fragment} zip
+
 
 </section>
 
@@ -775,14 +770,14 @@ Let's examine the highlighted ones in more detail. &rarr;
 
 __Live demo...__ &rarr;
 
-* {:.fragment} scripting in MySQL to create and populate tables, using gui
-	* single table 
+* {:.fragment} scripting in MySQL to create and populate tables
+	* [using db-fiddle](https://www.db-fiddle.com/)
+	* [using sql-fiddle](https://sqlfiddle.com/)
 	* [using the public trial version](https://www.phpmyadmin.net/try/)
-	* [or using db-fiddle](https://www.db-fiddle.com/)
+	* [single table first](movies.sql)
 * {:.fragment} writing queries in MySQL to analyze data
 	* use er diagram to show relationships among tables
-	* artists, paintings, media and countries – MySQL demo
-	* use commandline to browse
+* try both again with [multiple tables](movies_fk.sql)
 
 </section>
 
@@ -869,9 +864,8 @@ A couple of terms to remember (yay, definitions)
 <section markdown="block">
 ## MongoDB Demo
 
-Let's checkout some zipcode data and mongodb! &rarr;
+Let's try to use mongodb a little bit:
 
-* {:.fragment} importing data
 * {:.fragment} inserting data
 * {:.fragment} retrieving data
 
