@@ -5,7 +5,7 @@ title: Flawless Hacks - HTML and CSS
 
 ## ❤️ DATABAE ❤️
 
-### A Workshop on Data (in 4 Parts)
+### A Workshop on Data (in 2 Parts)
 
 #### Polonsky / Brine Summer Internships 2019
 
