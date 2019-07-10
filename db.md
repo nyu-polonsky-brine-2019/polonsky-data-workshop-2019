@@ -770,14 +770,10 @@ Let's examine the highlighted ones in more detail. &rarr;
 
 __Live demo...__ &rarr;
 
-* {:.fragment} scripting in MySQL to create and populate tables
-	* [using db-fiddle](https://www.db-fiddle.com/)
-	* [using sql-fiddle](https://sqlfiddle.com/)
-	* [using the public trial version](https://www.phpmyadmin.net/try/)
-	* [single table first](movies.sql)
-* {:.fragment} writing queries in MySQL to analyze data
-	* use er diagram to show relationships among tables
-* {:.fragment} try both again with [multiple tables](movies_fk.sql)
+* {:.fragment} scripting in MySQL to create, populate, and query tables
+* {:.fragment} [go to db-fiddle](https://www.db-fiddle.com/) (or [use sql-fiddle](https://sqlfiddle.com/))
+* {:.fragment} open this in notepad or textedit: [single table first](movies.sql)
+* {:.fragment} and, after we run some queries, try again with [multiple tables](movies_fk.sql)
 
 </section>
 
